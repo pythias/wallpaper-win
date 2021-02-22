@@ -1,0 +1,6 @@
+os: windows
+language: csharp
+solution: ./wallpaper.sln
+dotnet: 5.0
+script:
+  - dotnet test
