@@ -24,15 +24,14 @@ namespace Wallpaper
             [Option('i', "id", Required = true, HelpText = "Screen Id.")]
             public long? Id { get; set; }
 
-            [Option('w', "wallpaper", Required = true, HelpText = "Wallpaper location.")]
+            [Option('p', "path", Required = true, HelpText = "Wallpaper location.")]
             public string Wallpaper { get; set; }
         }
 
         [Verb("get", HelpText = "Get screen wallpaper.")]
         class GetOptions 
         {
-            [Option('i', "id", Required = true, HelpText = "Screen Id.")]
-            public int Id { get; set; }
+
         }
 
         static int Main(string[] args) 
@@ -64,7 +63,7 @@ namespace Wallpaper
         static int RunGetAndReturnExitCode(GetOptions opts)
         {
             Monitor monitor = new Monitor();
-            monitor.Id = opts.Id;
+            monitor.Id = 0;
             monitor.Path = GetDesktopWallpaper();
 
             Console.Out.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(monitor));
